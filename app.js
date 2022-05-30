@@ -97,17 +97,17 @@ app.use('/stories', require('./routes/stories'));
 //   console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 // );
 //google auth
-const url = require('url');
+// const url = require('url');
 
-// Receive the callback from Google's OAuth 2.0 server.
-if (req.url.startsWith('/oauth2callback')) {
-  // Handle the OAuth 2.0 server response
-  let q = url.parse(req.url, true).query;
+// // Receive the callback from Google's OAuth 2.0 server.
+// if (req.url.startsWith('/oauth2callback')) {
+//   // Handle the OAuth 2.0 server response
+//   let q = url.parse(req.url, true).query;
 
-  // Get access and refresh tokens (if access_type is offline)
-  let { tokens } = await oauth2Client.getToken(q.code);
-  oauth2Client.setCredentials(tokens);
-}
+//   // Get access and refresh tokens (if access_type is offline)
+//   let { tokens } = await oauth2Client.getToken(q.code);
+//   oauth2Client.setCredentials(tokens);
+// }
 
 app.set("port", process.env.PORT || 3000);
 const server = app.listen(app.get("port"), () => {
